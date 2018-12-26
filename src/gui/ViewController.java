@@ -10,6 +10,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.util.Callback;
 import model.entities.Person;
 
 public class ViewController implements Initializable {
@@ -28,5 +31,16 @@ public class ViewController implements Initializable {
 		
 		obsList = FXCollections.observableArrayList(list);
 		comboBoxPerson.setItems(obsList);
+		
+		Callback<ListView<Person>, ListCell<Person>> factory = lv -> new ListCell<Person>() {
+		    @Override
+		    protected void updateItem(Person item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(empty ? "" : item.getName());
+		    }
+		};
+
+		comboBoxPerson.setCellFactory(factory);
+		comboBoxPerson.setButtonCell(factory.call(null));
 	}
 }
