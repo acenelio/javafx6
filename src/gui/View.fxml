@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="197.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="gui.ViewController">
+   <children>
+      <ComboBox fx:id="comboBoxPerson" layoutX="31.0" layoutY="27.0" prefWidth="150.0" promptText="Select a person..." />
+   </children>
+</AnchorPane>
